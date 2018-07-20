@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>video recoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+</head>
+<body>
+
+    <article style="border:1px solid white;width:400px;height:400px;margin:0 auto;background-color:white;">
+		
+        <section class="experiment" style="width:320px; height:240px;border:1px solid green; margin:50px auto;">
+            <div id="videos-container" style="width:320px; height:240px;">
+            </div>
+        </section>
+        <section class="experiment" style="text-align:center;border:none; margin-top:20px;">
+            <div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center" style="margin-left: 0%;width: 100%">
+						<button th:attr="disabled=${session.stuTrainId=='-1'}" id="openCamera" class="btn btn-primary ladda-button" data-style="zoom-out"><span class="ladda-label">开启录制画面</span></button>
+						<button id="start-recording" disabled class="btn btn-primary ladda-button" data-style="zoom-out"><span class="ladda-label">开始录制</span></button>
+						<a id="save-recording"></a>
+						<button onclick="stopVideo()" id="stopButton" disabled class="btn btn-primary ladda-button" data-style="zoom-out"><span class="ladda-label">停止录制</span></button>
+						<button id="uploadButton" onclick="send()" disabled class="btn btn-primary ladda-button" data-style="zoom-out"><span class="ladda-label">上传</span></button>
+				</div>
+			</div>
+			<a href=javascript:void(0) onclick="playVideo()">播放</a>
+        </section>
+ 	</article>
+ 	<input type="hidden" id="filePath">
+ 	<video id="videos-play"></video>
+ 	
+<script type="text/javascript" src="static/js/HZRecorder.js"></script>
+<script type="text/javascript" src="static/js/video.js"></script>
+<script type="text/javascript" src="static/js/ControlBar.js"></script>
+<script type="text/javascript">
+	function playVideo(){
+		alert(document.getElementById('filePath').value)
+		document.getElementById('videos-play').src = document.getElementById('filePath').value;
+		document.getElementById('videos-play').play();
+	}
+
+</script>
+</body>
+
+</html>
